@@ -1,0 +1,58 @@
+clang++-8 `llvm-config-8 --cxxflags --ldflags --system-libs --libs all` src/mc.cpp -o mc
+In file included from src/mc.cpp:44:
+src/parser.h:302:55: error: function definition is not allowed here
+static std::unique_ptr<FunctionAST> ParseDefinition() {
+                                                      ^
+src/parser.h:315:51: error: function definition is not allowed here
+static std::unique_ptr<ExprAST> ParseExpression() {
+                                                  ^
+src/parser.h:325:57: error: function definition is not allowed here
+static std::unique_ptr<FunctionAST> ParseTopLevelExpr() {
+                                                        ^
+In file included from src/mc.cpp:46:
+src/codegen.h:22:29: error: function definition is not allowed here
+Value *NumberAST::codegen() {
+                            ^
+src/codegen.h:27:35: error: function definition is not allowed here
+Value *LogErrorV(const char *str) {
+                                  ^
+src/codegen.h:33:35: error: function definition is not allowed here
+Value *VariableExprAST::codegen() {
+                                  ^
+src/codegen.h:40:31: error: function definition is not allowed here
+Value *CallExprAST::codegen() {
+                              ^
+src/codegen.h:54:29: error: function definition is not allowed here
+Value *BinaryAST::codegen() {
+                            ^
+src/codegen.h:76:35: error: function definition is not allowed here
+Function *PrototypeAST::codegen() {
+                                  ^
+src/codegen.h:94:34: error: function definition is not allowed here
+Function *FunctionAST::codegen() {
+                                 ^
+src/codegen.h:137:32: error: function definition is not allowed here
+static void HandleDefinition() {
+                               ^
+src/codegen.h:149:40: error: function definition is not allowed here
+static void HandleTopLevelExpression() {
+                                       ^
+src/codegen.h:163:24: error: function definition is not allowed here
+static void MainLoop() {
+                       ^
+In file included from src/mc.cpp:48:
+src/helper/helper.h:1:32: error: function definition is not allowed here
+static void write_output(void) {
+                               ^
+src/mc.cpp:55:34: error: function definition is not allowed here
+int main(int argc, char *argv[]) {
+                                 ^
+src/mc.cpp:78:2: error: expected '}'
+}
+ ^
+src/parser.h:273:55: note: to match this '{'
+static std::unique_ptr<PrototypeAST> ParsePrototype() {
+                                                      ^
+16 errors generated.
+Makefile:8: recipe for target 'mc' failed
+make: *** [mc] Error 1
